@@ -1,13 +1,15 @@
 import { type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
-import { SignIn, SignInButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut,SignInButton,  UserButton,useUser } from "@clerk/nextjs";
 
 import { api } from "~/utils/api";
 
-const Home: NextPage = () => {
-  const hello = api.example.hello.useQuery({ text: "from tRPC" });
 
+
+const Home: NextPage = () => {
+
+  const user = useUser();
   return (
     <>
       <Head>
@@ -17,8 +19,12 @@ const Home: NextPage = () => {
       </Head>
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
       <div>
-      <h1> Sign in </h1>
-      <SignInButton />
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
+        <SignedOut>
+          <SignInButton />
+        </SignedOut>
       </div>
       </main>
     </>
