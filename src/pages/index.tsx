@@ -4,7 +4,7 @@ import Link from "next/link";
 import { SignedIn, SignedOut,SignInButton,  UserButton, useUser } from "@clerk/nextjs";
 
 import { api } from "~/utils/api";
-import SideBar from "~/Sidebar";
+import SideBar from "~/pages/Sidebar"
 
 
 
