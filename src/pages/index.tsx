@@ -27,7 +27,7 @@ const Home: NextPage = () => {
       <main className="flex h-screen justify-center">
         <div className="h-full  border-orange-100 md:max-w-2xl">
           <div className="flex items-center p-4 border-b justify-center 
-            bg-gradient-to-b from-orange-50 to-slate-200 text-orange-50 shadow-lg rounded-2xl">
+            bg-gradient-to-b from-orange-50 to-slate-200 text-slate-900 shadow-lg rounded-2xl">
 
           <SignedIn>
             <UserButton />
