@@ -5,7 +5,7 @@ import { Component, FunctionComponent } from "react";
 const SideBar = () => {
   return (
     <div className="fixed top-1/3 left-0 w-16 m-0 flex flex-col
-      bg-gradient-to-b from-orange-900 to-sky-800  text-orange-50 shadow-lg rounded-2xl">
+      bg-gradient-to-b from-slate-700 to-sky-800  text-orange-50 border shadow-lg rounded-2xl">
         <SideBarIcon icon={<BeakerIcon/>} />
         <SideBarIcon icon={<BookOpenIcon/>} />
         <SideBarIcon icon={<AcademicCapIcon/>} />
