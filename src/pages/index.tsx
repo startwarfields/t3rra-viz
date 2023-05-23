@@ -1,16 +1,9 @@
 import { type NextPage } from "next";
 import Head from "next/head";
-import Link from "next/link";
 import { SignedIn, SignedOut,SignInButton,  UserButton, useUser } from "@clerk/nextjs";
 import { api } from "~/utils/api";
 import SideBar from "~/pages/Sidebar"
-import inference from "~/pages/predict"
 import Example from "~/pages/chart"
-
-
-import React, { PureComponent } from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-
 
 const Home: NextPage = () => {
 
