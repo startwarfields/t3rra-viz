@@ -2,10 +2,14 @@ import { type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import { SignedIn, SignedOut,SignInButton,  UserButton, useUser } from "@clerk/nextjs";
-
 import { api } from "~/utils/api";
 import SideBar from "~/pages/Sidebar"
+import inference from "~/pages/predict"
+import Example from "~/pages/chart"
 
+
+import React, { PureComponent } from 'react';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 
 const Home: NextPage = () => {
@@ -13,7 +17,6 @@ const Home: NextPage = () => {
   const user = useUser();
 
   const {data} = api.posts.getAll.useQuery();
-
 
   return (
     <>
@@ -23,9 +26,8 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <SideBar/>
-      
       <main className="flex h-screen justify-center">
-        <div className="h-full  border-orange-100 md:max-w-2xl">
+        <div className="h-full w-1/2 border-orange-100">
           <div className="flex items-center p-4 border-b justify-center 
             bg-gradient-to-b from-orange-50 to-slate-200 text-slate-900 shadow-lg rounded-2xl">
 
@@ -37,13 +39,14 @@ const Home: NextPage = () => {
             <SignInButton />
           </SignedOut>
           </div>
-        <div>
-          {data?.map((post)=>(
-          <div key = {post.id}>{post.content}</div>
-          ))}
-        </div>
+      <div className="flex justify-center w-full bg-sky-950 text-slate-50 border-white shadow-lg rounded-2xl">
+      <Example/>
       </div>
+
+        </div>
+
       </main>
+   
     </>
   );
 };
