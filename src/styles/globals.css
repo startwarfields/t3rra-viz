@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-gradient-to-b from-amber-200  via-sky-300 to-sky-950 text-slate-100;
+  @apply bg-gradient-to-b from-amber-800 via-sky-800 to-sky-950;
 }
 
 @layer components {

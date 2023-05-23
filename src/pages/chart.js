@@ -24,12 +24,13 @@ export default class Example extends PureComponent {
             bottom: 20,
             left: 20,
           }}
+         
         >
-          <CartesianGrid />
-          <XAxis type="number" dataKey="x" name="stature" unit="cm" />
-          <YAxis type="number" dataKey="y" name="weight" unit="kg" />
+          <CartesianGrid stroke="white"/>
+          <XAxis type="number" dataKey="x" name="stature" unit="cm" stroke="white" />
+          <YAxis type="number" dataKey="y" name="weight" unit="kg" stroke="white"/>
           <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-          <Scatter name="A school" data={data} fill="#8884d8" />
+          <Scatter name="A school" data={data} fill="white" stroke="black"/>
         </ScatterChart>
       </ResponsiveContainer>
       </div>

@@ -20,19 +20,19 @@ const Home: NextPage = () => {
       </Head>
       <SideBar/>
       <main className="flex h-screen justify-center">
-        <div className="h-full w-1/2 border-orange-100">
+        <div className="h-full w-1/2">
           <div className="flex items-center p-4 border-b justify-center 
-            bg-gradient-to-b from-orange-50 to-slate-200 text-slate-900 shadow-lg rounded-2xl">
+            bg-gradient-to-b from-orange-950 to-sky-800 text-slate-200 shadow-lg rounded-2xl">
 
           <SignedIn>
             <UserButton />
-            <text className="text-stone-900 font-bold"> Personal Site</text>
+            <text className="text-stone-200 font-bold"> Personal Site</text>
           </SignedIn>
           <SignedOut>
             <SignInButton />
           </SignedOut>
           </div>
-      <div className="flex justify-center w-full bg-sky-950 text-slate-50 border-white shadow-lg rounded-2xl">
+      <div className="flex justify-center w-full text-slate-50 shadow-lg rounded-2xl">
       <Example/>
       </div>
 
