@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-gradient-to-b from-slate-700 via-sky-800 to-sky-950;
+  @apply bg-gray-900;
 }
 
 @layer components {

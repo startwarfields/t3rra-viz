@@ -22,7 +22,7 @@ const Home: NextPage = () => {
       <main className="flex h-screen justify-center">
         <div className="h-full w-1/2">
           <div className="flex items-center p-2 border justify-center 
-            bg-gradient-to-b from-slate-700 to-sky-800 text-slate-200 shadow-lg rounded-2xl">
+            bg-slate-800 text-slate-200 shadow-lg rounded-2xl">
 
           <SignedIn>
             <UserButton />
@@ -32,7 +32,7 @@ const Home: NextPage = () => {
             <SignInButton />
           </SignedOut>
           </div>
-      <div className="flex justify-center w-full text-slate-50 border shadow-lg rounded-2xl">
+      <div className="flex justify-center w-full text-slate-50 bg-slate-800 border shadow-lg rounded-2xl">
       <Example/>
       </div>
 
