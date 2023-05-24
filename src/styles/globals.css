@@ -12,7 +12,12 @@ body {
     h-12 w-12 mt-2 mb-2 mx-auto shadow-lg bg-gradient-to-br from-amber-200 via-sky-300 to-sky-800  text-slate-600 
     hover:bg-amber-900 rounded-3xl hover:rounded-xl;
   }
+  .background-stuff {
+    @apply relative 
+  }
 }
+
+
 
 .gradient-text {
   /* Fallback: Set a background color. */

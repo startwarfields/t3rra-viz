@@ -4,6 +4,7 @@ import { SignedIn, SignedOut,SignInButton,  UserButton, useUser } from "@clerk/n
 import { api } from "~/utils/api";
 import SideBar from "~/pages/Sidebar"
 import Example from "~/pages/chart"
+import Button from "./Button";
 
 const HomePage = () => {
   return (
@@ -28,6 +29,10 @@ const HomePage = () => {
           <div className="flex flex-grow justify-center items-center bg-slate-800 border shadow-lg rounded-2xl">
             <Example />
           </div>
+          <div className="flex flex-grow p-2 justify-center items-center bg-slate-800 border shadow-lg rounded-2xl">
+            <Button />
+          </div>
+
         </main>
       </div>
     </>
