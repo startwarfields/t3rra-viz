@@ -2,7 +2,7 @@ import React from "react";
 
 const CapPage: React.FC = () => {
   return (
-    <div className="w-1/2">
+    <div>
       <h1> Cap Projects</h1>
       <div className="project">
         <h2>Project 1</h2>

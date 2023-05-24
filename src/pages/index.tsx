@@ -10,9 +10,15 @@ import Button from "./Button";
 
 const HomePage = () => {
   const [currentPage, setCurrentPage] = useState("");
+  const [isSideBarOpen, setIsSidebarOpen] = useState(false);
 
-  const handleIconClicky = (iconName: string) => {
+  const handleIconClick = (iconName: string) => {
     setCurrentPage(iconName);
+    setIsSidebarOpen(false);
+  };
+
+  const toggleSideBar = () => {
+    setIsSidebarOpen(!isSideBarOpen);
   };
 
   const pageContent = renderPage(currentPage);
@@ -26,8 +32,15 @@ const HomePage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="flex justify-center">
-        <SideBar handleIconClick={handleIconClicky}/>
-
+        <button
+          className="fixed top-4 right-4 z-10 bg-gray-800 p-2 rounded-md text-white"
+          onClick={toggleSideBar}
+        >
+          {isSideBarOpen ? "Close Sidebar" : "Open Sidebar"}
+        </button>
+        {isSideBarOpen && (
+          <SideBar handleIconClick={handleIconClick} />
+        )}
         <main className="flex flex-col flex-grow items-center">
           <div className="flex items-center p-2 border justify-center bg-slate-800 text-slate-200 shadow-lg rounded-2xl">
             <SignedIn>

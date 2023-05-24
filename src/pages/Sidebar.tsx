@@ -52,7 +52,7 @@ export const renderPage = (currentPage: string) => {
     case "cap":
       return <CapPage/>;
     default:
-      return <div>Page not found</div>;
+      return <BeakerPage/>;
     }
   };
  
