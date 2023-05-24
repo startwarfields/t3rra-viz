@@ -41,7 +41,7 @@ const HomePage = () => {
         {isSideBarOpen && (
           <SideBar handleIconClick={handleIconClick} />
         )}
-        <main className="flex flex-col flex-grow items-center">
+        <main className="flex flex-col flex-grow items-center max-w-2xl">
           <div className="flex items-center p-2 border justify-center bg-slate-800 text-slate-200 shadow-lg rounded-2xl">
             <SignedIn>
               <UserButton />
@@ -52,7 +52,7 @@ const HomePage = () => {
             </SignedOut>
           </div>
 
-          <div className="flex flex-grow w-1/2 justify-center items-center bg-slate-800 text-slate-200 border shadow-lg rounded-2xl">
+          <div className="flex flex-grow justify-center items-center bg-slate-800 text-slate-200 border shadow-lg rounded-2xl">
             {pageContent}
           </div>
           <div className="flex flex-grow p-2 justify-center items-center bg-slate-800 border shadow-lg rounded-2xl">
