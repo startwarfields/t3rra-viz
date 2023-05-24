@@ -29,7 +29,7 @@ export default class Example extends PureComponent {
 
   render() {
     return (
-      <div style={{ width: 400, height: 400 }}>
+      <div style={{ width: 300, height: 300 }}>
         <ResponsiveContainer>
           <ScatterChart
             margin={{
