@@ -1,4 +1,4 @@
-import {BeakerIcon, BookOpenIcon, AcademicCapIcon} from "@heroicons/react/solid";
+import { BeakerIcon, BookOpenIcon, AcademicCapIcon } from "@heroicons/react/outline";
 import { Component, FunctionComponent, MouseEvent, useState } from "react";
 import BeakerPage from "./beaker";
 import BookPage from "./book";
