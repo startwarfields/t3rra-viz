@@ -2,11 +2,22 @@ import { type NextPage } from "next";
 import Head from "next/head";
 import { SignedIn, SignedOut,SignInButton,  UserButton, useUser } from "@clerk/nextjs";
 import { api } from "~/utils/api";
-import SideBar from "~/pages/Sidebar"
+import SideBar from "./Sidebar";
+import { renderPage } from "./Sidebar";
+import { useState } from "react";
 import Example from "~/pages/chart"
 import Button from "./Button";
 
 const HomePage = () => {
+  const [currentPage, setCurrentPage] = useState("");
+
+  const handleIconClicky = (iconName: string) => {
+    setCurrentPage(iconName);
+  };
+
+  const pageContent = renderPage(currentPage);
+
+
   return (
     <>
       <Head>
@@ -15,7 +26,8 @@ const HomePage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="flex justify-center">
-        <SideBar />
+        <SideBar handleIconClick={handleIconClicky}/>
+
         <main className="flex flex-col flex-grow items-center">
           <div className="flex items-center p-2 border justify-center bg-slate-800 text-slate-200 shadow-lg rounded-2xl">
             <SignedIn>
@@ -26,12 +38,15 @@ const HomePage = () => {
               <SignInButton />
             </SignedOut>
           </div>
-          <div className="flex flex-grow justify-center items-center bg-slate-800 border shadow-lg rounded-2xl">
-            <Example />
+
+          <div className="flex flex-grow w-1/2 justify-center items-center bg-slate-800 text-slate-200 border shadow-lg rounded-2xl">
+            {pageContent}
           </div>
           <div className="flex flex-grow p-2 justify-center items-center bg-slate-800 border shadow-lg rounded-2xl">
             <Button />
           </div>
+        
+
 
         </main>
       </div>
