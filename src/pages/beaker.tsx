@@ -5,7 +5,8 @@ const BeakerPage: React.FC = () => {
   return (
     <div className="text-white">
       <h1>Beaker Projects</h1>
-      <div className="project">
+      
+      <section>
         <h2>Project 1</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
@@ -14,12 +15,13 @@ const BeakerPage: React.FC = () => {
           dignissim ex.
         </p>
         <p>
-          Project Details: Lorem ipsum dolor sit amet, consectetur adipiscing
+          <strong>Project Details:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing
           elit. Donec ultrices placerat eleifend. Nulla venenatis turpis non
           sagittis eleifend.
         </p>
-      </div>
-      <div className="project">
+      </section>
+      
+      <section className="project">
         <h2>Project 2</h2>
         <p>
           Integer a fermentum velit, nec aliquam arcu. Curabitur feugiat
@@ -27,15 +29,17 @@ const BeakerPage: React.FC = () => {
           efficitur est elementum at.
         </p>
         <p>
-          Project Details: Phasellus id malesuada nunc, ut tincidunt nisl.
+          <strong>Project Details:</strong> Phasellus id malesuada nunc, ut tincidunt nisl.
           Pellentesque malesuada eu mauris eget vulputate.
         </p>
-      </div>
+      </section>
+      
       <div className="flex justify-center items-center">
-      <Example/>
+        <Example />
       </div>
     </div>
   );
 };
 
 export default BeakerPage;
+
