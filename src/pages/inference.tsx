@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 
 async function inference() {
   try {
-    env.wasm.wasmPaths = "/";
+    env.wasm.wasmPaths = process.env.NODE_ENV === 'production' ? '/_next/static/wasm/' : '/';
     env.wasm.simd = false;
     const session = await InferenceSession.create('pipeline_xgboost.onnx');
 

@@ -18,5 +18,15 @@ const config = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.module.rules.push({
+        test: /\.wasm$/,
+        type: 'webassembly/experimental',
+        include: [/node_modules\/onnxruntime-web\/dist/], // Include WebAssembly files from onnxruntime-web/dist/
+      });
+    }
+    return config;
+  },
 };
 export default config;
