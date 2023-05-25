@@ -29,7 +29,7 @@ const config = {
       const patterns = [
         {
           from: path.join('node_modules/onnxruntime-web/dist/*.wasm'),
-          to: 'static/wasm',
+          to: 'static/wasm/',
         },
       ];
 
