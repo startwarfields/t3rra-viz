@@ -18,6 +18,9 @@ const config = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  
+
+
   webpack: (config, { isServer }) => {
     if (!isServer) {
       config.module.rules.push({
@@ -27,6 +30,15 @@ const config = {
       });
     }
     return config;
+  },
+
+    async rewrites() {
+    return [
+      {
+        source: "/static/wasm/:path*",
+        destination: "/_next/static/wasm/:path*",
+      },
+    ];
   },
 };
 export default config;
