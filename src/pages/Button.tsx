@@ -1,14 +1,14 @@
 import React from 'react';
-import inference from './inference';
+import InferenceComponent from './inference'
 
 const Button = () => {
   const [clicked, setClicked] = React.useState(false);
 
   const handleClick = () =>{
     setClicked(!clicked);
-    inference()
-      .then(() => console.log('inference success'))
-      .catch((error) => console.error(`failed to inference ONNX model`, error));
+    // Call InferenceComponent
+
+
   };
 
   return (
@@ -16,6 +16,7 @@ const Button = () => {
       <button onClick={handleClick}>
         {clicked ? 'Clicked' : 'Not Clicked'}
       </button>
+      {clicked && <InferenceComponent />}
     </div>
   );
 };

@@ -3,8 +3,8 @@ import { useEffect } from 'react';
 
 async function inference() {
   try {
-    env.wasm.wasmPaths = process.env.NODE_ENV === 'production' ? '/_next/static/wasm/' : '/';
-    env.wasm.simd = false;
+    env.wasm.wasmPaths = process.env.NODE_ENV === 'production' ? 'public/' : '/';
+    env.wasm.simd = true;
     const session = await InferenceSession.create('pipeline_xgboost.onnx');
 
     // prepare inputs. a tensor needs its corresponding TypedArray as data
@@ -21,5 +21,16 @@ async function inference() {
     console.error(`failed to inference ONNX model:.`, e);
   }
 }
-export default inference;
+function InferenceComponent() {
+  useEffect(() => {
+      inference()
+      .then(() => console.log('inference success'))
+      .catch((error) => console.error(`failed to inference ONNX model`, error));
+
+  }, []);
+
+  return <div>Inference Component</div>;
+}
+
+export default InferenceComponent;
 

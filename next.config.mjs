@@ -2,6 +2,9 @@
  * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially useful
  * for Docker builds.
  */
+import CopyWebpackPlugin from 'copy-webpack-plugin';
+import path from 'path';
+
 await import("./src/env.mjs");
 
 /** @type {import("next").NextConfig} */
@@ -19,26 +22,21 @@ const config = {
     defaultLocale: "en",
   },
   
-
-
-  webpack: (config, { isServer }) => {
+   webpack: (config, { isServer }) => {
+    // Only perform the following steps for the client-side bundle
     if (!isServer) {
-      config.module.rules.push({
-        test: /\.wasm$/,
-        type: 'webassembly/experimental',
-        include: [/node_modules\/onnxruntime-web\/dist/], // Include WebAssembly files from onnxruntime-web/dist/
-      });
-    }
-    return config;
-  },
+      // Copy the WebAssembly files from node_modules to the output directory
+      const patterns = [
+        {
+          from: path.join('node_modules/onnxruntime-web/dist/*.wasm'),
+          to: 'static/wasm',
+        },
+      ];
 
-    async rewrites() {
-    return [
-      {
-        source: "/static/wasm/:path*",
-        destination: "/_next/static/wasm/:path*",
-      },
-    ];
+      config.plugins.push(new CopyWebpackPlugin({ patterns }));
+    }
+
+    return config;
   },
 };
 export default config;

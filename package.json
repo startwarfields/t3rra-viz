@@ -21,6 +21,8 @@
     "@trpc/react-query": "^10.18.0",
     "@trpc/server": "^10.18.0",
     "@vercel/analytics": "^1.0.1",
+    "copy-webpack-plugin": "^11.0.0",
+    "copyfiles": "^2.4.1",
     "next": "^13.4.1",
     "onnxruntime-node": "^1.15.0",
     "onnxruntime-react-native": "^1.11.0",
@@ -52,9 +54,5 @@
   },
   "ct3aMetadata": {
     "initVersion": "7.13.0"
-  }
-
-  "scripts": {
-  "postinstall": "copyfiles --up 1 --no-preserve-root node_modules/onnxruntime-web/dist/*.wasm public/static/wasm"
   }
 }
