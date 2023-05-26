@@ -1,36 +1,46 @@
-import { InferenceSession, Tensor, env, } from 'onnxruntime-web';
-import { useEffect } from 'react';
+import { InferenceSession, Tensor, env} from 'onnxruntime-web';
+import { useState, useEffect } from 'react';
 
-async function inference() {
+async function inference(values: number[]) {
   try {
     env.wasm.wasmPaths = '_next/static/wasm/node_modules/onnxruntime-web/dist/';
     env.wasm.simd = true;
     const session = await InferenceSession.create('pipeline_xgboost.onnx');
 
-    // prepare inputs. a tensor needs its corresponding TypedArray as data
-    const input = Float32Array.from([5.5, 6.5, 4.3, 2.3]);
+    const input = Float32Array.from(values);
     const tensorA = new Tensor('float32', input, [1, 4]);
 
-    const feeds: { [key: string]: Tensor } = { input: tensorA};
+    const feeds = { input: tensorA };
 
-
-    const output  = await session.run(feeds)
-    console.log(output.probabilities?.data);
-
+    const output = await session.run(feeds);
+    return output.probabilities?.data;
   } catch (e) {
-    console.error(`failed to inference ONNX model:.`, e);
+    console.error('Failed to inference ONNX model:', e);
+    throw e;
   }
 }
-function InferenceComponent() {
-  useEffect(() => {
-      inference()
-      .then(() => console.log('inference success'))
-      .catch((error) => console.error(`failed to inference ONNX model`, error));
 
-  }, []);
+interface InferenceComponentProps {
+  values: number[];
+  onResult: (result: Float32Array | undefined ) => void;
+}
+
+const InferenceComponent: React.FC<InferenceComponentProps> = ({ values, onResult }) => {
+  useEffect(() => {
+    inference(values)
+      .then((result) => {
+        console.log('Inference success');
+      
+        onResult(result as Float32Array | undefined)
+      })
+      .catch((error) => {
+        console.error('Failed to inference ONNX model', error);
+        onResult(undefined);
+      });
+  }, [values, onResult]);
 
   return <div>Inference Component</div>;
-}
+};
 
 export default InferenceComponent;
 
