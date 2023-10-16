@@ -24,8 +24,8 @@ const HomePage = () => {
   return (
     <>
       <Head>
-        <title>Hire Me Please</title>
-        <meta name="description" content="Please" />
+        <title>T3rra Vis</title>
+        <meta name="description" content="Web App with integrated machine learning" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="flex justify-center">
